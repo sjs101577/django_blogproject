@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{user.nickname}}님의 회원정보입니다.</h1>
+
+<form action="{%url 'mypage'%}" method="POST">
+    {%csrf_token%}
+    <table border="1">
+        <tr>
+            <th>회원ID</th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th>회원 닉네임</th>
+            <td>{{user.nickname}}</td>
+        </tr>
+        <tr>
+            <th>대학교</th>
+            <td>{{user.university}}</td>
+        </tr>
+        <tr>
+            <th>사는 곳</th>
+            <td>{{user.location}}</td>
+        </tr>
+    </table>
+</form>
+<button type="button" onclick="location.href='http://127.0.0.1:8000/'">확인</button>
+{% endblock %}
